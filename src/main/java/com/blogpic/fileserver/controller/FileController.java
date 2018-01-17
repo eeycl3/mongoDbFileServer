@@ -32,9 +32,6 @@ public class FileController {
     @Autowired
     private FileService fileService;
     
-    @Value("${server.address}")
-    private String serverAddress;
-    
     @Value("${server.port}")
     private String serverPort;
     
@@ -147,7 +144,7 @@ public class FileController {
         	File f = new File(file.getOriginalFilename(),  file.getContentType(), file.getSize(),file.getBytes());
         	f.setMd5( MD5Util.getMD5(file.getInputStream()) );
         	returnFile = fileService.saveFile(f);
-        	String path = "//"+ serverAddress + ":" + serverPort + "/view/"+returnFile.getId();
+        	String path = "//"+ "localhost" + ":" + serverPort + "/view/"+returnFile.getId();
         	return ResponseEntity.status(HttpStatus.OK).body(path);
  
         } catch (IOException | NoSuchAlgorithmException ex) {
