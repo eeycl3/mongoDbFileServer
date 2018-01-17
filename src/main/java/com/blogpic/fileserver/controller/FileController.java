@@ -159,7 +159,7 @@ public class FileController {
      * @param id
      * @return
      */
-    @DeleteMapping("/{id}")
+    @GetMapping("/delete/{id}")
     @ResponseBody
     public ResponseEntity<String> deleteFile(@PathVariable String id) {
  
