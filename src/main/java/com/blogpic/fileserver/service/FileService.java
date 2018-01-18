@@ -7,30 +7,24 @@ import java.util.List;
 
 import com.blogpic.fileserver.domain.File;
 
-/**
- * File 服务接口.
- * 
- * @since 1.0.0 2017年3月28日
- * @author <a href="https://waylau.com">Way Lau</a> 
- */
 public interface FileService {
 	/**
 	 * 保存文件
-	 * @param File
+	 * @param file
 	 * @return
 	 */
 	File saveFile(File file);
 	
 	/**
 	 * 删除文件
-	 * @param File
+	 * @param id
 	 * @return
 	 */
 	void removeFile(String id);
 	
 	/**
 	 * 根据id获取文件
-	 * @param File
+	 * @param id
 	 * @return
 	 */
 	File getFileById(String id);

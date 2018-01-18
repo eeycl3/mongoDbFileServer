@@ -37,7 +37,6 @@ public class FileController {
     
     @RequestMapping(value = "/")
     public String index(Model model) {
-    	// 展示最新二十条数据
         model.addAttribute("files", fileService.listFilesByPage(0,20)); 
         return "index";
     }
@@ -159,15 +158,18 @@ public class FileController {
      * @param id
      * @return
      */
-    @GetMapping("/delete/{id}")
-    @ResponseBody
-    public ResponseEntity<String> deleteFile(@PathVariable String id) {
+    @PostMapping("/delete")
+    public String deleteFile(@RequestParam String id, RedirectAttributes redirectAttributes) {
  
     	try {
 			fileService.removeFile(id);
-			return ResponseEntity.status(HttpStatus.OK).body("DELETE Success!");
 		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+            redirectAttributes.addFlashAttribute("message",
+                    "Fail to delete file with id: " + id);
+            return "redirect:/";
 		}
+        redirectAttributes.addFlashAttribute("message",
+                "Succeed to delete file with id: " + id);
+        return "redirect:/";
     }
 }

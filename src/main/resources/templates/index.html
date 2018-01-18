@@ -35,7 +35,7 @@
     </thead>
     <tbody>
     <tr th:if="${files.size()} eq 0">
-        <td colspan="3">没有文件信息！！</td>
+        <td colspan="3">No files!</td>
     </tr>
     <tr th:each="file : ${files}">
         <td><a th:href="'files/'+${file.id}" th:text="${file.name}" /></td>
@@ -44,12 +44,17 @@
         <td th:text="${file.size}" ></td>
         <td th:text="${file.uploadDate}" ></td>
         <td th:text="${file.md5}" ></td>
+        <td>
+            <form method="POST" th:action="@{/delete}">
+                <input type="hidden" name="id" th:value="${file.id}"/>
+                <button type="submit" class="btn btn-success">Delete</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
 </div>
 
-<p> call /delete/{id} to delete the file</p>
 <div th:replace="~{fragments/footer :: footer}">...</div>
 </body>
 </html>
