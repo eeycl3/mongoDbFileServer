@@ -5,7 +5,7 @@ package com.blogpic.fileserver.service;
 
 import java.util.List;
 
-import com.blogpic.fileserver.domain.File;
+import com.blogpic.fileserver.model.File;
 
 public interface FileService {
 	/**

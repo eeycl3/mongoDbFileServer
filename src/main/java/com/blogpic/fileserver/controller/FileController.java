@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import com.blogpic.fileserver.domain.File;
+import com.blogpic.fileserver.model.File;
 import com.blogpic.fileserver.service.FileService;
 import com.blogpic.fileserver.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -104,7 +103,7 @@ public class FileController {
     }
     
     /**
-     * 上传
+     * upload
      * @param file
      * @param redirectAttributes
      * @return
@@ -131,7 +130,7 @@ public class FileController {
     }
  
     /**
-     * 上传接口
+     * upload file
      * @param file
      * @return
      */
@@ -154,8 +153,9 @@ public class FileController {
     }
     
     /**
-     * 删除文件
+     * delete file
      * @param id
+     * @param redirectAttributes
      * @return
      */
     @PostMapping("/delete")

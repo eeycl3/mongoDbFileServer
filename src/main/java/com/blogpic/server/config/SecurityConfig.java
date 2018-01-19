@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class SecurityConfig extends WebMvcConfigurerAdapter {
 
 	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**").allowedOrigins("*") ; // 允许跨域请求
+	public void addCorsMappings(CorsRegistry reg) {
+		reg.addMapping("/**").allowedOrigins("*");
 	}
 }
