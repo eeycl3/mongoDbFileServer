@@ -2,7 +2,7 @@
 - Spring boot
 - MongoDB
 - Thymeleaf
-- Deploy on Heroku
+- Deploy on Heroku（not stable）
 - mvn
 
 ## Run
